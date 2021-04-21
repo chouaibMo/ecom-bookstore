@@ -1,4 +1,14 @@
-# ecom - bookstore
+<h1 align=center> ecom - bookstore </h1>
+
+<p align=center>
+  <img src="http://remidoolaeghe.github.io/img/skills/spring-boot.png" width="100" height="100" padding/>
+  <img src="https://cdn3.iconfinder.com/data/icons/popular-services-brands/512/angular-js-512.png" width="100" height="100"/>
+  <img src="https://symbols.getvecta.com/stencil_261/16_google-firebase.febfc9bdc0.png" width="100" height="100"/>
+  <img src="https://image.flaticon.com/icons/png/512/873/873120.png" width="90" height="90"/>
+  <img src="https://iconape.com/wp-content/png_logo_vector/jhipster.png" width="110" height="100"/>
+</p>
+
+
 
 This application was generated using JHipster 6.10.3, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v6.10.3](https://www.jhipster.tech/documentation-archive/v6.10.3).
 
