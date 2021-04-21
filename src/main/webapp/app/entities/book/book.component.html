@@ -1,0 +1,121 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="ecomBookstoreApp.book.home.title">Books</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-book" [routerLink]="['/book/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="ecomBookstoreApp.book.home.createLabel">
+            Create a new Book
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'ecomBookstoreApp.book.home.search' | translate }}">
+
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon icon="search"></fa-icon>
+                    </button>
+
+                    <button class="input-group-append btn btn-danger" (click)="search('')" *ngIf="currentSearch">
+                        <fa-icon icon="trash-alt"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="books?.length === 0">
+        <span jhiTranslate="ecomBookstoreApp.book.home.notFound">No books found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="books && books.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="title"><span jhiTranslate="ecomBookstoreApp.book.title">Title</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="price"><span jhiTranslate="ecomBookstoreApp.book.price">Price</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="rating"><span jhiTranslate="ecomBookstoreApp.book.rating">Rating</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="imageURL"><span jhiTranslate="ecomBookstoreApp.book.imageURL">Image URL</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="language"><span jhiTranslate="ecomBookstoreApp.book.language">Language</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="format"><span jhiTranslate="ecomBookstoreApp.book.format">Format</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="paperBackQuantity"><span jhiTranslate="ecomBookstoreApp.book.paperBackQuantity">Paper Back Quantity</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="publicationDate"><span jhiTranslate="ecomBookstoreApp.book.publicationDate">Publication Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="isbn"><span jhiTranslate="ecomBookstoreApp.book.isbn">Isbn</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="pages"><span jhiTranslate="ecomBookstoreApp.book.pages">Pages</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="otherDetails"><span jhiTranslate="ecomBookstoreApp.book.otherDetails">Other Details</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="categoryId"><span jhiTranslate="ecomBookstoreApp.book.category">Category</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="discountId"><span jhiTranslate="ecomBookstoreApp.book.discount">Discount</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let book of books ;trackBy: trackId">
+                    <td><a [routerLink]="['/book', book.id, 'view']">{{ book.id }}</a></td>
+                    <td>{{ book.title }}</td>
+                    <td>{{ book.price }}</td>
+                    <td>{{ book.rating }}</td>
+                    <td>{{ book.imageURL }}</td>
+                    <td jhiTranslate="{{ 'ecomBookstoreApp.Language.' + book.language }}">{{ book.language }}</td>
+                    <td jhiTranslate="{{ 'ecomBookstoreApp.BookType.' + book.format }}">{{ book.format }}</td>
+                    <td>{{ book.paperBackQuantity }}</td>
+                    <td>{{ book.publicationDate | date:'mediumDate' }}</td>
+                    <td>{{ book.isbn }}</td>
+                    <td>{{ book.pages }}</td>
+                    <td>{{ book.otherDetails }}</td>
+                    <td>
+                        <div *ngIf="book.categoryId">
+                            <a [routerLink]="['/category', book.categoryId , 'view']" >{{ book.categoryId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="book.discountId">
+                            <a [routerLink]="['/discount', book.discountId , 'view']" >{{ book.discountId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/book', book.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/book', book.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(book)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="books && books.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

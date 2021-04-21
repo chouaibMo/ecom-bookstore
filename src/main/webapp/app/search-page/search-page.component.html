@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="text-center">
+        <div class="text-center pt-5 pb-4">
+            <h1 jhiTranslate="ecomBookstoreApp.book.advanced">Recherche avancée</h1>
+            <hr class="light">
+        </div>
+
+        <jhi-search-filter (filterApplied)="onFilterApplied($event)">
+        </jhi-search-filter>
+
+        <h1 class="col-12 text-left" jhiTranslate="ecomBookstoreApp.book.results">Resultats de la recherche</h1>
+
+        <div class="displayH" *ngFor="let book of books">
+            <jhi-book-card [book]="book"></jhi-book-card>
+        </div>
+    </div>
+
+    <div class="m-4">
+        <div *ngIf="books && books.length > 0">
+            <div class="row justify-content-center">
+                <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+            </div>
+
+            <div class="row justify-content-center">
+                <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5"
+                    [rotate]="true" [boundaryLinks]="true" (pageChange)="nextPage($event)"></ngb-pagination>
+            </div>
+        </div>
+
+        <div *ngIf="!books || books.length <= 0">
+            <span jhiTranslate="ecomBookstoreApp.book.noResults">NO RESULTS</span>
+        </div>
+    </div>
+</div>

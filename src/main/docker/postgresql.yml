@@ -1,0 +1,12 @@
+version: '2'
+services:
+  bookstore-postgresql:
+    image: postgres:12.3
+    # volumes:
+    #     - ~/volumes/jhipster/bookstore/postgresql/:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=bookstore
+      - POSTGRES_PASSWORD=
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    ports:
+      - 5432:5432

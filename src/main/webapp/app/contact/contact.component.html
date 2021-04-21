@@ -1,0 +1,42 @@
+<div class="container">
+    <div>
+        <form class="contact100-form validate-form row mt-3">
+            <div style='text-align: center' class="col-xl-5">
+                <span class="contact100-form-title" jhiTranslate="contact.get_in_touch">
+                    Get in Touch
+                </span>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2811.6951495408966!2d5.766512093917835!3d45.19326694554158!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478af5a654d7dc0f%3A0x969831fcde460311!2sIM2AG!5e0!3m2!1sen!2sfr!4v1607970025449!5m2!1sen!2sfr" width="420" height="580" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                <div class="vl d-none d-xl-block"></div>
+            </div>
+            <div style='text-align: center' class="col-xl-7">
+                <span class="contact100-form-title" jhiTranslate="contact.contact_us">
+                    Contact Us
+                </span>
+
+                <div class="wrap-input100 validate-input" data-validate="Name is required">
+                    <input class="input100" type="text" name="name" placeholder="{{'contact.name_placeholder' | translate}}">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input"
+                    data-validate="Valid email is required: ex@abc.xyz">
+                    <input class="input100" type="text" name="email" placeholder="{{'contact.email_placeholder' | translate}}">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate="Message is required">
+                    <textarea class="input100" name="message" placeholder="{{'contact.message_placeholder' | translate}}"></textarea>
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="container-contact100-form-btn">
+                    <button class="contact100-form-btn">
+                        <span jhiTranslate="contact.submit">
+                            Submit
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

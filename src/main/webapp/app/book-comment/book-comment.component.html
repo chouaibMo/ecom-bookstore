@@ -1,0 +1,51 @@
+<div class="container">
+    <h1 class="pt-5 px-3 text-center" jhiTranslate="ecomBookstoreApp.customerComment.manageComment.main"></h1>
+    <div class="justify-content-center">
+
+        <div class="flex-grow-1 px-1 bg-light">
+            <div class="px-4 mb-1">
+                <jhi-book-card [book]="book || null">
+                </jhi-book-card>
+            </div>
+            <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+                <h2 id="jhi-customer-comment-heading" class="ml-4"
+                    jhiTranslate="ecomBookstoreApp.customerComment.manageComment.rating">Create or edit a Customer
+                    Comment
+                </h2>
+                <div class="mx-4">
+                    <div class="form-group">
+                        <ngb-rating [max]="5" [(rate)]="rate" (rateChange)="onSetRating($event)"></ngb-rating>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label"
+                            jhiTranslate="ecomBookstoreApp.customerComment.manageComment.title"
+                            for="field_title">Title</label>
+                        <input type="text" class="form-control" name="title" id="field_title" formControlName="title" />
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="form-control-label"
+                            jhiTranslate="ecomBookstoreApp.customerComment.manageComment.comment"
+                            for="field_comment">Comment</label>
+                        <textarea cols="20" rows="5" type="text" class="form-control" name="comment" id="field_comment"
+                            formControlName="comment"> </textarea>
+                        <span jhiTranslate="ecomBookstoreApp.customerComment.manageComment.characters">50 ~ 150 characters</span>
+                    </div>
+
+                </div>
+
+                <div class="mx-4 pb-4 mb-4">
+                    <button type="button" id="cancel-save" class="btn btn-secondary btn-lg mr-2" (click)="previousState()">
+                        <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                    </button>
+
+                    <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving"
+                        class="btn btn-success btn-lg">
+                        <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

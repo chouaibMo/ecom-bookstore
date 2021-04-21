@@ -1,0 +1,56 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="billingInfo">
+            <h2><span jhiTranslate="ecomBookstoreApp.billingInfo.detail.title">Billing Info</span> {{ billingInfo.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ecomBookstoreApp.billingInfo.infoTitle">Info Title</span></dt>
+                <dd>
+                    <span>{{ billingInfo.infoTitle }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecomBookstoreApp.billingInfo.cardNumber">Card Number</span></dt>
+                <dd>
+                    <span>{{ billingInfo.cardNumber }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecomBookstoreApp.billingInfo.cardExpiryDate">Card Expiry Date</span></dt>
+                <dd>
+                    <span>{{ billingInfo.cardExpiryDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecomBookstoreApp.billingInfo.cryptogram">Cryptogram</span></dt>
+                <dd>
+                    <span>{{ billingInfo.cryptogram }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecomBookstoreApp.billingInfo.email">Email</span></dt>
+                <dd>
+                    <span>{{ billingInfo.email }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecomBookstoreApp.billingInfo.billingMethod">Billing Method</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'ecomBookstoreApp.PaymentMethod.' + billingInfo.billingMethod }}">{{ billingInfo.billingMethod }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecomBookstoreApp.billingInfo.customer">Customer</span></dt>
+                <dd>
+                    <div *ngIf="billingInfo.customerId">
+                        <a [routerLink]="['/custom-user', billingInfo.customerId, 'view']">{{ billingInfo.customerId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/billing-info', billingInfo.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

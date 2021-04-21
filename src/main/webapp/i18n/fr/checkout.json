@@ -1,0 +1,38 @@
+{
+  "checkout": {
+    "cart": "Panier",
+    "billing": "Adresse de facturation",
+    "firstName": "Prénom",
+    "lastName": "Nom",
+    "address": "Adresse",
+    "country": "Pays",
+    "city": "Ville",
+    "zip": "Code postal",
+    "payment": "Paiement",
+    "cardname": "Nom sur la carte",
+    "cardname2": "Nom complet tel qu'affiché sur la carte",
+    "cardnumber": "Numéro de Carte de Crédit",
+    "cardnumber2": "Le numéro sur la carte de crédit",
+    "year": "Année",
+    "month": "Mois",
+    "save": "Enregistrez ces informations pour la prochaine fois",
+    "continue": "Confirmer le paiment",
+    "return": "< Retour au panier",
+    "yourcart": "Votre panier",
+    "promo": "Code promo",
+    "examplecode": "CODEEXEMPLE",
+    "apply": "Appliquer",
+    "error": {
+      "checkout" : "Un ou plusieurs champs sont incorrects. Veuillez réessayer",
+      "firstName": "Votre prénom est obligatoire.",
+      "lastName": "Votre nom de famille est obligatoire.",
+      "email": "Votre email est obligatoire",
+      "address": "Votre adresse est obligatoire",
+      "city": "Votre ville est obligatoire",
+      "zip": "Votre code postal est obligatoire",
+      "cardname": "Le nom figurant sur votre carte crédit est obligatoire",
+      "cardnumber": "Le numéro de votre carte crédit est obligatoire",
+      "cvv": "Le CVV est obligatoire"
+    }
+  }
+}

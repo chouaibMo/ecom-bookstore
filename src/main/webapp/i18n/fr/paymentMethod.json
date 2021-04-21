@@ -1,0 +1,9 @@
+{
+  "ecomBookstoreApp": {
+    "PaymentMethod": {
+      "null": "",
+      "CREDITCARD": "CREDITCARD",
+      "PAYPAL": "PAYPAL"
+    }
+  }
+}

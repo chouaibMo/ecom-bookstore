@@ -1,0 +1,41 @@
+{
+  "ecomBookstoreApp": {
+    "customerComment": {
+      "home": {
+        "title": "Commentaires des clients",
+        "createLabel": "Créer un nouveau commentaire client",
+        "createOrEditLabel": "Créer ou éditer un commentaire client",
+        "search": "Recherche de commentaire client",
+        "notFound": "Aucun commentaire client trouvé"
+      },
+      "created": "Un nouveau commentaire client a été créé avec l'identifiant {{ param }}",
+      "updated": "Le commentaire client avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le commentaire client avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le commentaire {{ id }} ?"
+      },
+      "detail": {
+        "title": "Commentaire client"
+      },
+      "title": "Titre",
+      "comment": "Commentaire",
+      "commentDate": "Date du commentaire",
+      "rating": "Évaluation",
+      "customer": "Client",
+      "username": "Nom d'utilisateur",
+      "book": "Livre",
+      "manageComment": {
+        "main": "Ajouter ou modifier un commentaire",
+        "title": "Votre titre :",
+        "rating": "Votre évaluation :",
+        "comment": "Votre commentaire :",
+        "characters": "50 ~ 150 caractères"
+      },
+      "bookCommentDialog": {
+        "updated": "Votre commentaire a été sauvegardé!",
+        "titleUpdated": "Opération traitée",
+        "back": "Retour"
+      }
+    }
+  }
+}

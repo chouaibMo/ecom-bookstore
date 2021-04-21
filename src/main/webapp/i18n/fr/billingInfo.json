@@ -1,0 +1,29 @@
+{
+  "ecomBookstoreApp": {
+    "billingInfo": {
+      "home": {
+        "title": "BillingInfos",
+        "createLabel": "Créer un nouveau Billing Info",
+        "createOrEditLabel": "Créer ou éditer un Billing Info",
+        "search": "Recherche pour Billing Info",
+        "notFound": "Aucun Billing Info trouvé"
+      },
+      "created": "Un nouveau Billing Info a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Billing Info avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Billing Info avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Billing Info {{ id }} ?"
+      },
+      "detail": {
+        "title": "Billing Info"
+      },
+      "infoTitle": "Info Title",
+      "cardNumber": "Card Number",
+      "cardExpiryDate": "Card Expiry Date",
+      "cryptogram": "Cryptogram",
+      "email": "Email",
+      "billingMethod": "Billing Method",
+      "customer": "Customer"
+    }
+  }
+}

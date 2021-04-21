@@ -1,0 +1,7 @@
+<li class="list-group-item d-flex justify-content-between lh-condensed">
+    <div class="pointer-cursor" [routerLink]="['/shop/book/', book!.id, 'view']" >
+        <h6 class="my-0">{{book?.title}}</h6>
+        <small class="text-muted">{{book!.format}}</small>
+    </div>
+    <span class="text-muted">{{orderLine.price | currency:'EUR':true}}</span>
+</li>

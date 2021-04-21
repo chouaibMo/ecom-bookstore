@@ -1,0 +1,68 @@
+<!--
+    Container affichant les informations  détaillées d'un livre
+-->
+<div class="container card bootdey">
+    <section class="row panel">
+        <div class="col-lg-4 col-md-6">
+            <div class="pro-img-details">
+                <img src="{{book?.imageURL}}" alt="{{book?.title}}">
+            </div>
+        </div>
+        <div class="details col-lg-8 col-md-6">
+            <h3 class="pro-d-title product-title">{{book?.title}}</h3>
+            <h4 class="price">
+                <span>{{book?.price | currency:'EUR':true}}</span>
+            </h4>
+            <div class="rating">
+                <div class="stars">
+                    <div  style="display: inline" *ngFor="let in of counter(starsChecked) ;let i = index">
+                        <fa-icon class="checked" icon="star"></fa-icon>
+                    </div>
+                    <div style="display: inline" *ngFor="let in of counter(starsBlack) ;let i = index">
+                        <fa-icon icon="star"></fa-icon>
+                    </div>
+
+                </div>
+                <span class="review-no">({{reviews?.length}} reviews)</span>
+            </div>
+
+            <div>
+                <p class="product-description">{{book?.otherDetails}}</p>
+            </div>
+
+            <div class="product_meta">
+                <div class="posted_in">
+                    <label class="line-title" jhiTranslate="ecomBookstoreApp.book.language">Language:</label>
+                    <label class="product-title line-value">{{book?.language != null?book?.language:'None'}}</label>
+                </div>
+                <div class="posted_in">
+                    <label class="line-title" jhiTranslate="ecomBookstoreApp.book.category">Categorie:</label>
+                    <label class="product-title line-value">{{categoryName}}</label>
+                </div>
+                <div class="posted_in">
+                    <label class="line-title" jhiTranslate="ecomBookstoreApp.book.isbn">isbn:</label>
+                    <label class="product-title line-value">{{book?.isbn}}</label>
+                </div>
+                <div class="posted_in">
+                    <label class="line-title" jhiTranslate="ecomBookstoreApp.book.format">Format:</label>
+                    <label class="product-title line-value">{{book?.format}}</label>
+                </div>
+                <div class="posted_in">
+                    <label class="line-title" jhiTranslate="ecomBookstoreApp.book.publicationDate">Publication Date:</label>
+                    <label class="product-title line-value">{{book?.publicationDate | date }}</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-xs-6 col-md-6 mb-3">
+                    <input type="number" #quantity [value]="1" class="form-control quantity">
+                </div>
+                <div class="col-xs-6 col-md-6 mb-3">
+                    <button class="btn btn-round btn-dark" type="button" (click)="addToCart(quantity.value)">
+                        <fa-icon icon="cart-arrow-down"></fa-icon>
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,272 @@
+<div style='margin-bottom: 50px' class="container max-width">
+    <div class="py-5 text-center">
+        <h1>Checkout</h1>
+    </div>
+    <!--
+    <div>
+        <p class="steps"><span jhiTranslate="checkout.cart">Cart</span>   >   <span class="text-success">Checkout</span>   >   Confirmation</p>
+    </div>
+    -->
+    <div class="row">
+        <div class="col-md-8">
+            <div class="alert alert-danger" *ngIf="checkoutError" jhiTranslate="checkout.error.checkout">
+                error
+            </div>
+        </div>
+        <!-- CART ITEMS -->
+        <div class="col-md-4 order-md-2 mb-4">
+            <h4 class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-muted" jhiTranslate="checkout.yourcart">Your cart</span>
+                <!-- NB ORDER ITEMS -->
+                <span class="badge badge-secondary badge-pill">{{orderLines?.length}}</span>
+            </h4>
+            <!-- ITEMS LIST -->
+            <ul class="list-group mb-3">
+                <!-- ORDER LINES -->
+                <div *ngFor="let orderLine of orderLines">
+                    <jhi-product-item [orderLine]="orderLine"></jhi-product-item>
+                </div>
+                <!-- DISCOUNT APPLIED -->
+                <!--
+                <li class="list-group-item d-flex justify-content-between bg-light">
+                    <div class="text-success">
+                        <h6 class="my-0" jhiTranslate="checkout.promo">Promo code</h6>
+                        <small jhiTranslate="checkout.examplecode">EXAMPLECODE</small>
+                    </div>
+                    <span class="text-success">-0 €</span>
+                </li>
+                -->
+                <!-- TOTAL -->
+                <li class="list-group-item d-flex justify-content-between">
+                    <span>Total</span>
+                    <strong>{{order?.totalPrice | currency:'EUR':true}}</strong>
+                </li>
+            </ul>
+
+            <!-- PROMO CODE -->
+            <form class="card p-2">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="{{'checkout.promo' | translate}}">
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-secondary" jhiTranslate="checkout.apply">Apply</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- BILLING -->
+        <div class="col-md-8 order-md-1">
+            <h4 class="mb-3" jhiTranslate="checkout.billing">Billing address</h4>
+            <form class="needs-validation" [formGroup]="checkoutForm" (ngSubmit)="processPayment()" novalidate>
+                <div class="row">
+                    <!-- FIRST NAME -->
+                    <div class="col-md-6 mb-3">
+                        <label for="firstName" jhiTranslate="checkout.firstName">First name</label>
+                        <input type="text" class="form-control" id="firstName"
+                            placeholder="{{'checkout.firstName' | translate}}" formControlName="firstName" #firstName>
+
+                        <div
+                            *ngIf="checkoutForm.get('firstName')!.invalid && (checkoutForm.get('firstName')!.dirty || checkoutForm.get('firstName')!.touched)">
+                            <small class="form-text text-danger" *ngIf="checkoutForm.get('firstName')?.errors?.required"
+                                jhiTranslate="checkout.error.firstName">
+                                Your first name is required.
+                            </small>
+                        </div>
+                    </div>
+                    <!-- LAST NAME -->
+                    <div class="col-md-6 mb-3">
+                        <label for="lastName" jhiTranslate="checkout.lastName">Last name</label>
+                        <input type="text" class="form-control" id="lastName" name="lastName"
+                            placeholder="{{'checkout.lastName' | translate}}" formControlName="lastName" #lastName>
+
+                        <div
+                            *ngIf="checkoutForm.get('lastName')!.invalid && (checkoutForm.get('lastName')!.dirty || checkoutForm.get('lastName')!.touched)">
+                            <small class="form-text text-danger" *ngIf="checkoutForm.get('lastName')?.errors?.required"
+                                jhiTranslate="checkout.error.lastName">
+                                Your last name is required.
+                            </small>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- EMAIL -->
+                <div class="mb-3">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" formControlName="email"
+                        placeholder="you@example.com" #email>
+
+                    <div
+                        *ngIf="checkoutForm.get('email')!.invalid && (checkoutForm.get('email')!.dirty || checkoutForm.get('email')!.touched)">
+                        <small class="form-text text-danger" *ngIf="checkoutForm.get('email')?.errors?.required"
+                            jhiTranslate="checkout.error.email">
+                            Your address is required.
+                        </small>
+                    </div>
+
+                </div>
+                <!-- ADDRESS -->
+                <div class="mb-3">
+                    <label for="address" jhiTranslate="checkout.address">Address</label>
+                    <input type="text" class="form-control" id="address" name="address"
+                        placeholder="{{'checkout.address' | translate}}" formControlName="address" #address>
+                    <div
+                        *ngIf="checkoutForm.get('address')!.invalid && (checkoutForm.get('address')!.dirty || checkoutForm.get('address')!.touched)">
+                        <small class="form-text text-danger" *ngIf="checkoutForm.get('address')?.errors?.required"
+                            jhiTranslate="checkout.error.address">
+                            Your address is required.
+                        </small>
+                    </div>
+                </div>
+
+                <!-- COUNTRY -->
+                <div class="row">
+                    <div class="col-md-5 mb-3">
+                        <label for="country" jhiTranslate="checkout.country">Country</label>
+                        <select class="custom-select d-block w-100" id="country" name="country"
+                            formControlName="country" #country>
+                            <option value="" disabled selected jhiTranslate="checkout.country">Country</option>
+                            <option>USA</option>
+                            <option>ITALY</option>
+                            <option>CHINA</option>
+                            <option>SPAIN</option>
+                            <option>CANADA</option>
+                            <option>FRANCE</option>
+                            <option>ENGLAND</option>
+                        </select>
+                    </div>
+                    <!-- CITY -->
+                    <div class="col-md-3 mb-3">
+                        <label for="city" jhiTranslate="checkout.city">City</label>
+                        <input type="text" class="form-control" id="city" name="city"
+                            placeholder="{{'checkout.city' | translate}}" formControlName="city" #city>
+
+                        <div
+                            *ngIf="checkoutForm.get('city')!.invalid && (checkoutForm.get('city')!.dirty || checkoutForm.get('city')!.touched)">
+                            <small class="form-text text-danger" *ngIf="checkoutForm.get('city')?.errors?.required"
+                            jhiTranslate="checkout.error.city">
+                            Your city is required.
+                            </small>
+                        </div>
+
+                    </div>
+                    <!-- ZIP -->
+                    <div class="col-md-3 mb-3">
+                        <label for="zip" jhiTranslate="checkout.zip">Zip code</label>
+                        <input type="text" class="form-control" id="zip" name="zip"
+                            placeholder="{{'checkout.zip' | translate}}" formControlName="zip" #zip>
+                        <div
+                            *ngIf="checkoutForm.get('zip')!.invalid && (checkoutForm.get('zip')!.dirty || checkoutForm.get('zip')!.touched)">
+                            <small class="form-text text-danger" *ngIf="checkoutForm.get('zip')?.errors?.required"
+                            jhiTranslate="checkout.error.zip">
+                            Your zip code is required.
+                            </small>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="mb-4">
+
+                <!-- PAYMENT METHOD -->
+                <h4 class="mb-3" jhiTranslate="checkout.payment">Payment</h4>
+                <!--
+                <div class="d-block my-3">
+                    <div class="custom-control custom-radio">
+                        <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
+                        <label class="custom-control-label" for="credit">Credit card</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
+                        <label class="custom-control-label" for="debit">Debit card</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
+                        <label class="custom-control-label" for="paypal">PayPal</label>
+                    </div>
+                </div>
+                 -->
+                <!-- CREDIT CARD INFO -->
+                <div class="row">
+                    <!-- CARD NAME -->
+                    <div class="col-md-6 mb-3">
+                        <label for="cardName" jhiTranslate="checkout.cardname">Name on card</label>
+                        <input type="text" class="form-control" id="cardName" name="cardName"
+                            placeholder="{{'checkout.cardname2' | translate}}" formControlName="cardName" #cardName>
+                        <div
+                            *ngIf="checkoutForm.get('cardName')!.invalid && (checkoutForm.get('cardName')!.dirty || checkoutForm.get('cardName')!.touched)">
+                            <small class="form-text text-danger" *ngIf="checkoutForm.get('cardName')?.errors?.required"
+                            jhiTranslate="checkout.error.cardname">
+                            The name on your card is required.
+                            </small>
+                        </div>
+                    </div>
+                    <!-- CARD NO -->
+                    <div class="col-md-6 mb-3">
+                        <label for="cardNo" jhiTranslate="checkout.cardnumber">Credit card number</label>
+                        <input maxlength="16" type="text" class="form-control" id="cardNo" placeholder="" name="cardNo"
+                            formControlName="cardNo" #cardNo placeholder="{{'checkout.cardnumber2' | translate}}">
+                        <div
+                            *ngIf="checkoutForm.get('cardNo')!.invalid && (checkoutForm.get('cardNo')!.dirty || checkoutForm.get('cardNo')!.touched)">
+                            <small class="form-text text-danger" *ngIf="checkoutForm.get('cardNo')?.errors?.required"
+                            jhiTranslate="checkout.error.cardnumber">
+                            Your card number is required.
+                            </small>
+                        </div>
+                    </div>
+                </div>
+                <!-- EXPIRATION -->
+                <div class="row">
+                    <div class="col-4 mb-3">
+                        <label>Expiration</label>
+                        <select class="custom-select d-block w-100" id="month" name="month" formControlName="month"
+                            #month>
+                            <option value="" disabled selected jhiTranslate="checkout.month">Month</option>
+                            <option *ngFor='let in of [1,2,3,4,5,6,7,8,9,10,11,12];let i = index'>{{i+1}}</option>
+                        </select>
+                    </div>
+
+                    <div class="col-4 mb-3">
+                        <label class="steps"> </label>
+                        <select class="custom-select d-block w-100" id="year" name="year" formControlName="year" #year>
+                            <option value="" disabled selected hidden jhiTranslate="checkout.year">Year</option>
+                            <option *ngFor='let in of [1,2,3,4,5,6,7,8];let i = index'>{{i+2020}}</option>
+                        </select>
+                    </div>
+                    <!-- CVV -->
+                    <div class="col-4 mb-3">
+                        <label for="cvv">CVV</label>
+                        <input maxlength="3" type="text" class="form-control" id="cvv" name="cvv" placeholder="000"
+                            formControlName="cvv" #cvv>
+                        <div
+                            *ngIf="checkoutForm.get('cvv')!.invalid && (checkoutForm.get('cvv')!.dirty || checkoutForm.get('cvv')!.touched)">
+                            <small class="form-text text-danger" *ngIf="checkoutForm.get('cvv')?.errors?.required"
+                            jhiTranslate="checkout.error.cvv">
+                            CVV is required.
+                            </small>
+                        </div>
+                    </div>
+                </div>
+                <hr class="mb-4">
+
+                <!-- SAVE INFOS CHECKBOX -->
+                <!--
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" name="saveAddress" id="saveAddress"
+                        #saveAddress>
+                    <label class="custom-control-label" for="saveAddress" jhiTranslate="checkout.save">Save this
+                        information for next time</label>
+                </div>
+
+                <hr class="mb-3">
+                -->
+                <button class="btn btn-success btn-lg btn-xl float-right" type="submit"
+                    jhiTranslate="checkout.continue">Continue</button>
+                <span *jhiHasAnyAuthority="'ROLE_USER'" routerLinkActive="active"
+                    [routerLinkActiveOptions]="{ exact: true }">
+                    <a class="steps mt-4 text-success nav-link" (click)="onCartClick()"
+                        jhiTranslate="checkout.return">&lt; Return to cart</a>
+                </span>
+            </form>
+            <br class="mb-3">
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+{
+  "contact": {
+    "name_placeholder": "Enter your name",
+    "email_placeholder": "Enter your email address",
+    "get_in_touch": "Get in Touch",
+    "contact_us": "Contact Us",
+    "questions": "For any question contact our 24/7 call center: ",
+    "address": "Address: ",
+    "message_placeholder": "Your message here...",
+    "name": "Your Name",
+    "email": "Email",
+    "submit": "Submit"
+  }
+}

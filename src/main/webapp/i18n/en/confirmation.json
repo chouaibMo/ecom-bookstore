@@ -1,0 +1,9 @@
+{
+  "confirmation": {
+    "pagetitle": "Confirmation",
+    "title": "Order completed successfully",
+    "message": "Thank you for ordering. We received your order and will begin processing it soon. Your order confirmation and download link will be sent to your email.",
+    "back": "BACK TO STORE",
+    "bag": "VIEW ORDER"
+  }
+}

@@ -1,0 +1,20 @@
+@font-face {
+  font-family: JosefinSans;
+  src: url('../../content/fonts/Josefin_Sans/static/JosefinSans-Regular.ttf');
+}
+
+.max-width {
+  max-width: 1000px;
+}
+
+h1 {
+  font-family: JosefinSans;
+}
+.steps {
+  white-space: pre-wrap;
+}
+.btn-xl {
+  padding: 11px 19px;
+  font-size: 14px;
+  margin: auto;
+}

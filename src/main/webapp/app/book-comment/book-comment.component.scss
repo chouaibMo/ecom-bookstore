@@ -1,0 +1,27 @@
+ngb-rating {
+  font-size: 2rem;
+  color: yellow;
+  background: inherit;
+}
+@font-face {
+  font-family: JosefinSans;
+  src: url('../../content/fonts/Josefin_Sans/static/JosefinSans-Regular.ttf');
+}
+h1,
+h2 {
+  font-family: JosefinSans;
+}
+
+.flex-grow-1 {
+  border-radius: 6px;
+}
+@media (max-width: 767px) {
+  h2 {
+    padding-top: 15px;
+  }
+}
+.btn-secondary,
+.btn-success {
+  border-radius: 20px;
+  font-size: 15px;
+}

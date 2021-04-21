@@ -1,0 +1,33 @@
+.col-sm-4 {
+  padding: 0 0px;
+}
+@media (min-width: 320px) {
+  .col-sm-4 {
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+    padding: 0 0px;
+  }
+}
+
+.btn-xl {
+  padding: 12px 21px;
+  font-size: 15px;
+  border-radius: 30px;
+  margin: auto;
+}
+
+@font-face {
+  font-family: JosefinSans;
+  src: url('../../content/fonts/Josefin_Sans/static/JosefinSans-Regular.ttf');
+}
+h1 {
+  font-family: JosefinSans;
+}
+.btn-xl {
+  padding: 11px 19px;
+  font-size: 14px;
+  margin: auto;
+}
+.light {
+  width: 30%;
+}

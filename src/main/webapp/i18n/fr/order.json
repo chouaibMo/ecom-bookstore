@@ -1,0 +1,37 @@
+{
+  "ecomBookstoreApp": {
+    "order": {
+      "home": {
+        "title": "Commandes - Bookstore",
+        "createLabel": "Créer une nouvelle commande",
+        "createOrEditLabel": "Créer ou éditer une commande",
+        "search": "Rechercher",
+        "notFound": "Aucune commande trouvée"
+      },
+      "created": "Une nouvelle commande a été créée avec l'identifiant {{ param }}",
+      "updated": "La commande avec l'identifiant {{ param }} a été mise à jour",
+      "deleted": "La commande avec l'identifiant {{ param }} a été supprimée",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer la commande {{ id }} ?"
+      },
+      "detail": {
+        "title": "Commande"
+      },
+      "orderId": "Id de commande",
+      "orderStatus": "Status de la commande",
+      "orderDetails": "Details de la commande",
+      "totalPrice": "Prix de la commande",
+      "orderDate": "Date de la commande",
+      "paymentDate": "Date du paiement",
+      "orderLine": "Ligne de commande",
+      "customer": "Client",
+      "orderProcessedDate": "Date de traitement",
+      "orderHistory": {
+        "title": "Mes Commandes",
+        "download" : "Télécharger",
+        "writeCommentBtn": "Écrire un commentaire",
+        "empty": "Vous n'avez actuellement aucun achat"
+      }
+    }
+  }
+}

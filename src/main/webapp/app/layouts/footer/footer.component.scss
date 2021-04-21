@@ -1,0 +1,98 @@
+@font-face {
+  font-family: JosefinSans;
+  src: url('../../../content/fonts/Josefin_Sans/static/JosefinSans-Regular.ttf');
+}
+
+footer {
+  background-color: #F8F5F0;
+  color: #3f3f3f;
+  padding-top: 2rem;
+  width: 100%;
+}
+footer a,
+a:hover {
+  color: #3f3f3f;
+}
+hr.light-100 {
+  border-top: 1px solid #aaaaaa;
+  width: 92%;
+  margin-top: 0.8rem;
+  margin-bottom: 1rem;
+}
+footer img {
+  height: 150px;
+  width: 220px;
+}
+h3 {
+  font-family: JosefinSans;
+}
+hr.light {
+  border-top: 1px solid #aaaaaa;
+  margin-top: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+/* image */
+ol,
+ul {
+  list-style: none;
+}
+.hand {
+  cursor: pointer;
+  cursor: pointer;
+}
+.cards {
+  padding-left: 0;
+}
+.cards li {
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+  background-image: url('../../../content/images/credit-card.jpg');
+  background-position: 0 0;
+  float: left;
+  height: 32px;
+  margin-right: 8px;
+  text-indent: -9999px;
+  width: 51px;
+}
+.cards .mastercard {
+  background-position: -51px 0;
+}
+.cards li {
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+  background-image: url('../../../content/images/credit-card.jpg');
+  background-position: 0 0;
+  float: left;
+  height: 32px;
+  margin-right: 8px;
+  text-indent: -9999px;
+  width: 51px;
+}
+.cards .amex {
+  background-position: -102px 0;
+}
+.cards li {
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+  background-image: url('../../../content/images/credit-card.jpg');
+  background-position: 0 0;
+  float: left;
+  height: 32px;
+  margin-right: 8px;
+  text-indent: -9999px;
+  width: 51px;
+}
+.cards li:last-child {
+  margin-right: 0;
+}
+/* fin-image */

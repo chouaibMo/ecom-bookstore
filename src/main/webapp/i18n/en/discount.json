@@ -1,0 +1,27 @@
+{
+  "ecomBookstoreApp": {
+    "discount": {
+      "home": {
+        "title": "Discounts",
+        "createLabel": "Create a new Discount",
+        "createOrEditLabel": "Create or edit a Discount",
+        "search": "Search for Discount",
+        "notFound": "No Discounts found"
+      },
+      "created": "A new Discount is created with identifier {{ param }}",
+      "updated": "A Discount is updated with identifier {{ param }}",
+      "deleted": "A Discount is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Discount {{ id }}?"
+      },
+      "detail": {
+        "title": "Discount"
+      },
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "description": "Description",
+      "discountRate": "Discount Rate",
+      "book": "Book"
+    }
+  }
+}

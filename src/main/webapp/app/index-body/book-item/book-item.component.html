@@ -1,0 +1,9 @@
+<div class="book read inline" [routerLink]="['/shop/book/', book!.id, 'view']">
+    <div class="cover">
+        <img class="image-size" src="{{book!.imageURL}}">
+    </div>
+    <div class="description">
+        <p class="card-title text-left">{{book!.title}}</p>
+        <p class='price text-left'>{{book!.price | currency:'EUR':true}}</p>
+    </div>
+</div>

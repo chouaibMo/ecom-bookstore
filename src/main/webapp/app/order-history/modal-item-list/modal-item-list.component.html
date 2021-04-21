@@ -1,0 +1,27 @@
+<div class="modal-header bg-light">
+
+    <div class="d-flex justify-content-around cart-item bg-light">
+        <div class="px-2">
+            <div class="cart-item-label" jhiTranslate="ecomBookstoreApp.order.orderId"> </div>
+            {{order?.id}}
+        </div>
+        <div class="px-2">
+            <div class="cart-item-label" jhiTranslate="ecomBookstoreApp.order.orderDate"> </div>
+            {{order?.orderDate | date}}
+        </div>
+
+        <div class="px-2">
+            <div class="cart-item-label" jhiTranslate="ecomBookstoreApp.order.orderStatus"> </div>
+            {{order?.orderStatus}}
+        </div>
+    </div>
+    <button type="button" class="close" aria-lable="Close" (click)="onDismiss('Closingclick')">
+        <span aria-hidden="true">x</span>
+    </button>
+</div>
+
+<div class="modal-body">
+    <div *ngFor="let orderLine of orderLines">
+        <jhi-order-item-card [orderLine]="orderLine"></jhi-order-item-card>
+    </div>
+</div>

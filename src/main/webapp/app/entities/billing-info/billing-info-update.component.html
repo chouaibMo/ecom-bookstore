@@ -1,0 +1,82 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-billing-info-heading" jhiTranslate="ecomBookstoreApp.billingInfo.home.createOrEditLabel">Create or edit a Billing Info</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ecomBookstoreApp.billingInfo.infoTitle" for="field_infoTitle">Info Title</label>
+                    <input type="text" class="form-control" name="infoTitle" id="field_infoTitle"
+                           formControlName="infoTitle"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ecomBookstoreApp.billingInfo.cardNumber" for="field_cardNumber">Card Number</label>
+                    <input type="text" class="form-control" name="cardNumber" id="field_cardNumber"
+                           formControlName="cardNumber"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ecomBookstoreApp.billingInfo.cardExpiryDate" for="field_cardExpiryDate">Card Expiry Date</label>
+                    <div class="input-group">
+                        <input id="field_cardExpiryDate" type="text" class="form-control" name="cardExpiryDate" ngbDatepicker #cardExpiryDateDp="ngbDatepicker" formControlName="cardExpiryDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="cardExpiryDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ecomBookstoreApp.billingInfo.cryptogram" for="field_cryptogram">Cryptogram</label>
+                    <input type="text" class="form-control" name="cryptogram" id="field_cryptogram"
+                           formControlName="cryptogram"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ecomBookstoreApp.billingInfo.email" for="field_email">Email</label>
+                    <input type="text" class="form-control" name="email" id="field_email"
+                           formControlName="email"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ecomBookstoreApp.billingInfo.billingMethod" for="field_billingMethod">Billing Method</label>
+                    <select class="form-control" name="billingMethod" formControlName="billingMethod" id="field_billingMethod">
+                        <option value="CREDITCARD">{{ 'ecomBookstoreApp.PaymentMethod.CREDITCARD' | translate }}</option>
+                        <option value="PAYPAL">{{ 'ecomBookstoreApp.PaymentMethod.PAYPAL' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('billingMethod')!.invalid && (editForm.get('billingMethod')!.dirty || editForm.get('billingMethod')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('billingMethod')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ecomBookstoreApp.billingInfo.customer" for="field_customer">Customer</label>
+                    <select class="form-control" id="field_customer" name="customer" formControlName="customerId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="customUserOption.id" *ngFor="let customUserOption of customusers; trackBy: trackById">{{ customUserOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

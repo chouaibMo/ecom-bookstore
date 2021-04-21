@@ -1,0 +1,47 @@
+<div class="container-f">
+    <div id="search-bg" class="mb-5">
+        <div class="containor container title">
+            <h4 class="pt-5" jhiTranslate="entity.index.find">Find your favorites from a diverse selection of books</h4>
+            <h1 jhiTranslate="entity.index.search">Search right now</h1>
+            <br>
+            <br>
+            <div class="col-12">
+                <div id="custom-search-input">
+                    <div class="input-group">
+                        <input type="text" class="search-query form-control" placeholder="Search" (keydown)="onKeydown($event)"/>
+                        <span class="input-group-btn">
+                            <button type="button" disabled>
+                                <fa-icon icon="search"></fa-icon>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="most mb-4">
+        <h1 class="text-center header" jhiTranslate="entity.index.mostrat">Most Rated</h1>
+        <hr class="light">
+        <div class="displayH" *ngFor="let book of mostRated">
+            <jhi-book-item [book]="book"></jhi-book-item>
+        </div>
+
+        <h1 class="text-center margin-top header" jhiTranslate="entity.index.mostrev">Most Reviewed</h1>
+        <hr class="light">
+        <div class="displayH" *ngFor="let book of mostReviewed">
+            <jhi-book-item [book]="book"></jhi-book-item>
+        </div>
+    </div>
+    <div id="fixed">
+        <div class="container">
+            <h1>
+                <span jhiTranslate="entity.index.Navigate">Navigate through a wide selection</span><br>
+                <span jhiTranslate="entity.index.Discover">Discover new novels each day</span>
+            </h1>
+            <br>
+            <button type="button" class="btn btn-dark btn-lg btn-xl" jhiTranslate="entity.index.shopbtn">Search
+                now</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="author">
+            <h2><span jhiTranslate="ecomBookstoreApp.author.detail.title">Author</span> {{ author.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ecomBookstoreApp.author.name">Name</span></dt>
+                <dd>
+                    <span>{{ author.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecomBookstoreApp.author.description">Description</span></dt>
+                <dd>
+                    <span>{{ author.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecomBookstoreApp.author.country">Country</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'ecomBookstoreApp.Country.' + author.country }}">{{ author.country }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/author', author.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

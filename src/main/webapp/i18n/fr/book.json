@@ -1,0 +1,58 @@
+{
+  "ecomBookstoreApp": {
+    "book": {
+      "home": {
+        "title": "Livres - Bookstore",
+        "createLabel": "Créer un nouveau livre",
+        "createOrEditLabel": "Créer ou éditer un livre",
+        "search": "Recherche pour Book",
+        "notFound": "Aucun livre trouvé"
+      },
+      "created": "Un nouveau livre a été créé avec l'identifiant {{ param }}",
+      "updated": "Le livre avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le livre avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le livre {{ id }} ?"
+      },
+      "detail": {
+        "title": "Description - Bookstore"
+      },
+      "title": "Titre",
+      "price": "Prix",
+      "rating": "Evaluation",
+      "imageURL": "URL d'image",
+      "language": "Langue",
+      "format": "Format",
+      "paperBackQuantity": "Quantité de livres en papier",
+      "publicationDate": "Date de publication",
+      "isbn": "Isbn",
+      "pages": "Pages",
+      "otherDetails": "Autre détails",
+      "category": "Categorie",
+      "author": "Auteur",
+      "discount": "Remise",
+      "advanced": "Recherche avancée",
+      "results": "Resultats de la recherche",
+      "noResults": "Aucun resultat",
+      "sort": {
+        "main": "Trier",
+        "lowestPrice": "Prix le plus bas",
+        "highestPrice": "Prix le plus élevé",
+        "recentFirst": "Le plus récent",
+        "recentLast": "Le moins Recent",
+        "bestRating": "Meilleure note",
+        "worstRating": "Pire note",
+        "sortby": "Trier par :",
+        "sort": "Trier",
+        "apply": "Appliquer"
+      },
+      "filter": {
+        "main": "Filtrer",
+        "category": "Catégorie :",
+        "noCategory": "Non selectionnée",
+        "rating": "Note minimale :",
+        "range": "Fourchette des prix :"
+      }
+    }
+  }
+}

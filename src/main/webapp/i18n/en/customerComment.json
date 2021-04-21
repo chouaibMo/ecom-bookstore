@@ -1,0 +1,41 @@
+{
+  "ecomBookstoreApp": {
+    "customerComment": {
+      "home": {
+        "title": "Customer Comments",
+        "createLabel": "Create a new Customer Comment",
+        "createOrEditLabel": "Create or edit a Customer Comment",
+        "search": "Search for Customer Comment",
+        "notFound": "No Customer Comments found"
+      },
+      "created": "A new Customer Comment is created with identifier {{ param }}",
+      "updated": "A Customer Comment is updated with identifier {{ param }}",
+      "deleted": "A Customer Comment is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Customer Comment {{ id }}?"
+      },
+      "detail": {
+        "title": "Customer Comment"
+      },
+      "title": "Title",
+      "comment": "Comment",
+      "commentDate": "Comment Date",
+      "rating": "Rating",
+      "customer": "Customer",
+      "username": "Username",
+      "book": "Book",
+      "manageComment": {
+        "main": "Add or edit a comment",
+        "title": "Your title :",
+        "rating": "Your rating :",
+        "comment": "Your comment :",
+        "characters": "50 ~ 150 characters"
+      },
+      "bookCommentDialog": {
+        "updated": "Your comment has been saved!",
+        "titleUpdated": "Operation processed",
+        "back": "Back"
+      }
+    }
+  }
+}

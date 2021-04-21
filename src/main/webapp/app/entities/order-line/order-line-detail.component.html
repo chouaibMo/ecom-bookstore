@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="orderLine">
+            <h2><span jhiTranslate="ecomBookstoreApp.orderLine.detail.title">Order Line</span> {{ orderLine.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ecomBookstoreApp.orderLine.quantity">Quantity</span></dt>
+                <dd>
+                    <span>{{ orderLine.quantity }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecomBookstoreApp.orderLine.price">Price</span></dt>
+                <dd>
+                    <span>{{ orderLine.price }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecomBookstoreApp.orderLine.book">Book</span></dt>
+                <dd>
+                    <div *ngIf="orderLine.bookId">
+                        <a [routerLink]="['/book', orderLine.bookId, 'view']">{{ orderLine.bookId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ecomBookstoreApp.orderLine.order">Order</span></dt>
+                <dd>
+                    <div *ngIf="orderLine.orderId">
+                        <a [routerLink]="['/order', orderLine.orderId, 'view']">{{ orderLine.orderId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/order-line', orderLine.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

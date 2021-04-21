@@ -1,0 +1,14 @@
+{
+  "contact": {
+    "name_placeholder": "Entrez votre nom",
+    "email_placeholder": "Entrez votre adresse email",
+    "get_in_touch": "Coordonnées",
+    "contact_us": "Nous contacter",
+    "questions": "Pour toute question contactez notre centre d'appels 24/7 : ",
+    "address": "Addresse: ",
+    "message_placeholder": "Votre message ici...",
+    "name": "Votre Nom",
+    "email": "Courriel",
+    "submit": "Valider"
+  }
+}

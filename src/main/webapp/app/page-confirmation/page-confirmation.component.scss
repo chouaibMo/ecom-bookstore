@@ -1,0 +1,29 @@
+@font-face {
+  font-family: JosefinSans;
+  src: url('../../content/fonts/Josefin_Sans/static/JosefinSans-Regular.ttf');
+}
+.buttons {
+  margin-top: 40px;
+  color: white;
+}
+.buttons .btn {
+  padding: 12px 17px;
+  margin-right: 10px;
+  font-size: 15px;
+  border-radius: 25px;
+}
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 240px;
+  width: 192px;
+  margin-top: 120px;
+}
+.title {
+  text-align: center;
+  font-size: 22px;
+  margin-top: 10px;
+  word-spacing: 3px;
+  font-family: JosefinSans;
+}

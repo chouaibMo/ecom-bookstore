@@ -1,0 +1,19 @@
+<div class="container card">
+    <div class="row posted_in">
+        <div style='width: 200px' class="rating col-xs-4 col-md-4 mb-2">
+            <div class="stars">
+                <div  style="display: inline" *ngFor="let in of counter(nbStars) ;let i = index"><fa-icon class="checked" icon="star"></fa-icon></div>
+                <div style="display: inline" *ngFor="let in of counter(5-nbStars) ;let i = index"><fa-icon icon="star"></fa-icon></div>
+            </div>
+            <div class="">
+                <span style='display:block;' class="" >{{username}}</span>
+                <span style='display:block;'class="" >{{customerComment?.commentDate | date}}</span>
+            </div>
+        </div>
+
+        <div style='width: 250px' class="product_meta col-xs-8 col-md-8 mb-2">
+            <span class="product-title line-value" >{{customerComment?.title}}</span>
+            <span class="">{{customerComment?.comment}}</span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,60 @@
+<!-- Display the entete = header of the Order -->
+
+
+
+
+
+
+
+
+<div class="cart-item card-horizontal container" (click)="onModalRequest()">
+    <div class="card-body d-flex justify-content-around">
+        <div class="cart-item-product-title px-3 py-3">
+            <label class="cart-item-label pb-2" jhiTranslate="ecomBookstoreApp.order.orderProcessedDate"></label> {{order?.orderDate | date}}
+        </div>
+        <div class="cart-item-product-info px-3 py-3">
+            <div class="cart-item-label pb-2" jhiTranslate="ecomBookstoreApp.order.orderId"> Order Id </div> {{order!.id}}
+        </div>
+        <div class=" cart-item-product-infopx-3 py-3">
+            <div class="cart-item-label pb-2" jhiTranslate="ecomBookstoreApp.order.totalPrice"> </div>{{order?.totalPrice |  currency:'EUR':true}}
+        </div>
+        <div class=" cart-item-product-info px-3 py-3">
+            <div class="cart-item-label pb-2" jhiTranslate="ecomBookstoreApp.order.orderStatus"> </div>{{order?.orderStatus}}
+        </div>
+    </div>
+</div>
+
+
+
+<!--
+<div class="row">
+    <div class="col-sm-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">N° Order</h5>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Date Order</h5>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Total Price</h5>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+-->

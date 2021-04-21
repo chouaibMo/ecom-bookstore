@@ -1,0 +1,44 @@
+<div class="text-center py-5">
+    <h1 jhiTranslate="ecomBookstoreApp.order.orderHistory.title">My Purchases</h1>
+    <hr class="light">
+</div>
+
+<div *ngIf="orders != null && orders.length > 0" class="mb-5">
+    <div *ngFor="let order of orders">
+        <jhi-order-card [order]="order"></jhi-order-card>
+    </div>
+</div>
+<br class="mb-5">
+<div *ngIf="orders == null || orders.length <= 0">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card-body cart">
+                    <div style='padding-top: 20px' class="col-sm-12 empty-cart-cls text-center">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/ecom-bookstore.appspot.com/o/system%2F1288596.png?alt=media&token=9e5df65c-8d82-4c02-8063-d74ac9e53b31" width="250" height="250" class="img-fluid mb-4 mr-3">
+                        <h3><strong jhiTranslate="ecomBookstoreApp.order.orderHistory.empty">Your currently don't have any purchases!</strong></h3>
+                        <a href="#" class="btn btn-secondary cart-btn-transform m-3 btn-xl" data-abc="true" jhiTranslate="shoppingCart.continue">Continue
+                            shopping</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!--
+<div class="card" style="width: 18rem;margin: auto;" *ngIf="visibility">
+    <div class="card-body">
+        <img class="card-img-top" src="/assets/img.jpg" alt="Card image cap"  >
+    </div>
+    <ul class="list-group list-group-flush" >
+        <li class="list-group-item">BookTittle</li>
+        <li class="list-group-item">Authors</li>
+        <li class="list-group-item">ISBN</li>
+    </ul>
+</div>
+-->

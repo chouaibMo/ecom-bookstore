@@ -1,0 +1,11 @@
+export const enum OrderStatus {
+  IN_CART = 'IN_CART',
+
+  CANCELLED = 'CANCELLED',
+
+  CONFIRMED = 'CONFIRMED',
+
+  EXPEDITED = 'EXPEDITED',
+
+  DELIVERED = 'DELIVERED',
+}

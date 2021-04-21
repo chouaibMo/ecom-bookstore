@@ -1,0 +1,114 @@
+ngb-rating {
+  font-size: 2rem;
+  color: rgb(199, 199, 13);
+  background: inherit;
+}
+.filters {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+  border-radius: 8px;
+  width: 100%;
+}
+@media (min-width: 576px) {
+  .rating-container {
+    width: 100%;
+  }
+  ngx-slider {
+    width: 400px;
+  }
+  .pricerange {
+    margin-top: 24px;
+    padding-right: 20px;
+  }
+}
+@font-face {
+  font-family: JosefinSans;
+  src: url('../../../content/fonts/Josefin_Sans/static/JosefinSans-Regular.ttf');
+}
+.option {
+  font-family: JosefinSans;
+  font-size: 16px;
+}
+.btn-xl {
+  padding: 11px 19px;
+  font-size: 14px;
+  margin: auto;
+  border-radius: 30px;
+}
+@media (max-width: 768px) {
+  .sortForm {
+    text-align: right;
+  }
+}
+
+/*========= Radio===========*/
+.container {
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #2196f3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
+.rad {
+  text-align: left;
+}
+@media (max-width: 900px) {
+  .yo {
+    float: right;
+  }
+}

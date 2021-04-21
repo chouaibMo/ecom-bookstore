@@ -1,0 +1,10 @@
+{
+  "ecomBookstoreApp": {
+    "BookType": {
+      "null": "",
+      "AUDIO": "AUDIO",
+      "EBOOK": "EBOOK",
+      "PAPERBACK": "PAPERBACK"
+    }
+  }
+}

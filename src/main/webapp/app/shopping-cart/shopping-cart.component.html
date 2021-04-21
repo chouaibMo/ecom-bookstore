@@ -1,0 +1,54 @@
+<div class="text-center py-5">
+    <h1 jhiTranslate="shoppingCart.title">My Cart</h1>
+    <hr class="light">
+</div>
+
+<div *ngIf="orderLines != null && orderLines.length > 0" class="container pb-2 mb-2">
+
+    <!-- ITEMS -->
+    <div *ngFor="let orderLine of orderLines">
+        <jhi-cart-item [userId]="userId" [orderLine]="orderLine" (onDestroyEvent)="onLineRemoved($event)">
+        </jhi-cart-item>
+    </div>
+
+    <!-- TOTAL
+    <div class="d-sm-flex justify-content-between align-items-center text-center text-sm-left">
+        <div class="py-2">
+            <span
+                class="d-inline-block align-middle text-sm text-muted font-weight-medium text-uppercase mr-2">Total :</span>
+            <span class="d-inline-block align-middle text-xl font-weight-medium" #totalCart>{{order!.totalPrice | currency}}</span>
+        </div>
+    </div>
+-->
+    <!-- BUTTONS -->
+    <hr class="my-2">
+    <div class="row pt-3 pb-4 mb-2 d-flex justify-content-center">
+        <div class="col-sm-3 mb-3">
+            <a class="btn btn-style-1 btn-secondary btn-block btn-xl" routerLink="/home">
+                <fa-icon icon="shopping-cart"></fa-icon>&nbsp;<span jhiTranslate="shoppingCart.continue">Continue shopping</span>
+            </a>
+        </div>
+        <div class="col-sm-3 mb-3">
+            <a class="btn btn-style-1 btn-success btn-block btn-xl" routerLink="/checkout/{{userId}}">
+                <fa-icon icon="credit-card"></fa-icon>&nbsp;<span jhiTranslate="shoppingCart.checkout">Checkout</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="orderLines == null || orderLines.length <= 0">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card-body cart">
+                    <div style='padding-top: 20px' class="col-sm-12 empty-cart-cls text-center">
+                        <img src="../../content/images/cart.png" width="250" height="250" class="img-fluid mb-4 mr-3">
+                        <h3><strong jhiTranslate="shoppingCart.empty">Your cart is currently empty!</strong></h3>
+                        <a href="#" class="btn btn-secondary cart-btn-transform m-3 btn-xl" data-abc="true" jhiTranslate="shoppingCart.continue">Continue
+                            shopping</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,88 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="book">
+            <h2><span jhiTranslate="ecomBookstoreApp.book.detail.title">Book</span> {{ book.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ecomBookstoreApp.book.title">Title</span></dt>
+                <dd>
+                    <span>{{ book.title }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecomBookstoreApp.book.price">Price</span></dt>
+                <dd>
+                    <span>{{ book.price }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecomBookstoreApp.book.rating">Rating</span></dt>
+                <dd>
+                    <span>{{ book.rating }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecomBookstoreApp.book.imageURL">Image URL</span></dt>
+                <dd>
+                    <span>{{ book.imageURL }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecomBookstoreApp.book.language">Language</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'ecomBookstoreApp.Language.' + book.language }}">{{ book.language }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecomBookstoreApp.book.format">Format</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'ecomBookstoreApp.BookType.' + book.format }}">{{ book.format }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecomBookstoreApp.book.paperBackQuantity">Paper Back Quantity</span></dt>
+                <dd>
+                    <span>{{ book.paperBackQuantity }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecomBookstoreApp.book.publicationDate">Publication Date</span></dt>
+                <dd>
+                    <span>{{ book.publicationDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecomBookstoreApp.book.isbn">Isbn</span></dt>
+                <dd>
+                    <span>{{ book.isbn }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecomBookstoreApp.book.pages">Pages</span></dt>
+                <dd>
+                    <span>{{ book.pages }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecomBookstoreApp.book.otherDetails">Other Details</span></dt>
+                <dd>
+                    <span>{{ book.otherDetails }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecomBookstoreApp.book.category">Category</span></dt>
+                <dd>
+                    <div *ngIf="book.categoryId">
+                        <a [routerLink]="['/category', book.categoryId, 'view']">{{ book.categoryId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ecomBookstoreApp.book.author">Author</span></dt>
+                <dd>
+                    <span *ngFor="let author of book.authors; let last = last">
+                        <a [routerLink]="['/author', author?.id, 'view']">{{ author.id }}</a>{{ last ? '' : ', ' }}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="ecomBookstoreApp.book.discount">Discount</span></dt>
+                <dd>
+                    <div *ngIf="book.discountId">
+                        <a [routerLink]="['/discount', book.discountId, 'view']">{{ book.discountId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/book', book.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

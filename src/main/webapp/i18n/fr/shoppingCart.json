@@ -1,0 +1,23 @@
+{
+  "ecomBookstoreApp": {
+    "cart": {
+      "main": {
+        "title": "Mon panier - Bookstore",
+        "notFound": "No shopping cart found"
+      }
+    }
+  },
+  "shoppingCart": {
+    "title": "Mon Panier",
+    "continue": "Continuer l'achat",
+    "checkout": "Checkout",
+    "empty": "Votre panier est vide en ce moment",
+    "item": {
+      "author": "Auteur   : ",
+      "category": "Catégorie : ",
+      "price": "Prix unitaire",
+      "quantity": "Quantité",
+      "subtotal": "Sous-total"
+    }
+  }
+}

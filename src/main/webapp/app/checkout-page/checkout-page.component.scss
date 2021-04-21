@@ -1,0 +1,134 @@
+@import 'node_modules/bootstrap/scss/bootstrap.scss';
+
+@font-face {
+  font-family: Poppins-Regular;
+  src: url('../../content/fonts/poppins/Poppins-Regular.ttf');
+}
+
+.fontt {
+  height: 100%;
+  font-family: Poppins-Regular, sans-serif;
+}
+
+.flt-left {
+  float: left;
+}
+
+hr {
+  clear: both;
+}
+
+.cancel {
+  text-decoration: none;
+}
+
+.bg-pay {
+  background-color: #eee;
+  border-radius: 2px;
+}
+
+.com-color {
+  color: #8f37aa !important;
+}
+
+.radio {
+  cursor: pointer;
+}
+
+label.radio input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+label.radio div {
+  padding: 7px 14px;
+  border: 2px solid #8f37aa;
+  display: inline-block;
+  color: #8f37aa;
+  border-radius: 3px;
+  text-transform: uppercase;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+label.radio input:checked + div {
+  border-color: #8f37aa;
+  background-color: #8f37aa;
+  color: #fff;
+}
+
+.fw-500 {
+  font-weight: 400;
+}
+
+.lh-16 {
+  line-height: 16px;
+}
+
+/* images*/
+ol,
+ul {
+  list-style: none;
+}
+.hand {
+  cursor: pointer;
+  cursor: pointer;
+}
+.cards {
+  padding-left: 0;
+}
+.cards li {
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+  background-image: url('../../content/images/credit-card.jpg');
+  background-position: 0 0;
+  float: left;
+  height: 32px;
+  margin-right: 8px;
+  text-indent: -9999px;
+  width: 51px;
+}
+.cards .mastercard {
+  background-position: -51px 0;
+}
+.cards li {
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+  background-image: url('../../content/images/credit-card.jpg');
+  background-position: 0 0;
+  float: left;
+  height: 32px;
+  margin-right: 8px;
+  text-indent: -9999px;
+  width: 51px;
+}
+.cards .amex {
+  background-position: -102px 0;
+}
+.cards li {
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+  background-image: url('../../content/images/credit-card.jpg');
+  background-position: 0 0;
+  float: left;
+  height: 32px;
+  margin-right: 8px;
+  text-indent: -9999px;
+  width: 51px;
+}
+.cards li:last-child {
+  margin-right: 0;
+}
+/* images end */

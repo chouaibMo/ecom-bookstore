@@ -1,0 +1,26 @@
+{
+  "ecomBookstoreApp": {
+    "orderLine": {
+      "home": {
+        "title": "OrderLines",
+        "createLabel": "Créer un nouveau Order Line",
+        "createOrEditLabel": "Créer ou éditer un Order Line",
+        "search": "Recherche pour Order Line",
+        "notFound": "Aucun Order Line trouvé"
+      },
+      "created": "Un nouveau Order Line a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Order Line avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Order Line avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Order Line {{ id }} ?"
+      },
+      "detail": {
+        "title": "Order Line"
+      },
+      "quantity": "Quantity",
+      "price": "Price",
+      "book": "Book",
+      "order": "Order"
+    }
+  }
+}

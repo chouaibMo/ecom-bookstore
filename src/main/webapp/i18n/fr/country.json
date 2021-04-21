@@ -1,0 +1,14 @@
+{
+  "ecomBookstoreApp": {
+    "Country": {
+      "null": "",
+      "FRANCE": "FRANCE",
+      "ENGLAND": "ENGLAND",
+      "CHINA": "CHINA",
+      "ITALY": "ITALY",
+      "SPAIN": "SPAIN",
+      "CANADA": "CANADA",
+      "USA": "USA"
+    }
+  }
+}

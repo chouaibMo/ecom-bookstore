@@ -1,0 +1,8 @@
+{
+  "confirmation": {
+    "title": "Commande effectuée avec succès",
+    "message": "Merci d'avoir commandé. Nous avons reçu votre commande et commencerons bientôt à la traiter. Votre confirmation de commande et le lien de téléchargement seront envoyés à votre adresse e-mail.",
+    "back": "RETOUR AU MAGASIN",
+    "bag": "VOIR LA COMMANDE"
+  }
+}

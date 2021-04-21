@@ -1,0 +1,58 @@
+{
+  "ecomBookstoreApp": {
+    "book": {
+      "home": {
+        "title": "Books - Bookstore",
+        "createLabel": "Create a new Book",
+        "createOrEditLabel": "Create or edit a Book",
+        "search": "Search for Book",
+        "notFound": "No Books found"
+      },
+      "created": "A new Book is created with identifier {{ param }}",
+      "updated": "A Book is updated with identifier {{ param }}",
+      "deleted": "A Book is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Book {{ id }}?"
+      },
+      "detail": {
+        "title": "Description - Bookstore"
+      },
+      "title": "Title",
+      "price": "Price",
+      "rating": "Rating",
+      "imageURL": "Image URL",
+      "language": "Language",
+      "format": "Format",
+      "paperBackQuantity": "Paper Back Quantity",
+      "publicationDate": "Publication Date",
+      "isbn": "Isbn",
+      "pages": "Pages",
+      "otherDetails": "Other Details",
+      "category": "Category",
+      "author": "Author",
+      "discount": "Discount",
+      "advanced": "Advanced search",
+      "results": "Search results",
+      "noResults": "NO RESULTS",
+      "sort": {
+        "main": "Sort",
+        "lowestPrice": "Lowest Price",
+        "highestPrice": "Highest Price",
+        "recentFirst": "Most Recent",
+        "recentLast": "Least Recent",
+        "bestRating": "Best Rating",
+        "worstRating": "Worst Rating",
+        "sortby": "Sort by :",
+        "sort": "Sort",
+        "apply": "Apply"
+      },
+      "filter": {
+        "main": "Filter",
+        "category": "Category :",
+        "noCategory": "Not Selected",
+        "rating": "Minimun Rating :",
+        "range": "Price range :"
+      }
+    }
+  }
+}

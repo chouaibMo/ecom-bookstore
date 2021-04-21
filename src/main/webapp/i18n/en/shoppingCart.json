@@ -1,0 +1,23 @@
+{
+  "ecomBookstoreApp": {
+    "cart": {
+      "main": {
+        "title": "My Cart - Bookstore",
+        "notFound": "No shopping cart found"
+      }
+    }
+  },
+  "shoppingCart": {
+    "title": "My Cart",
+    "continue": "Continue shopping",
+    "checkout": "Checkout",
+    "empty": "Your cart is currently empty",
+    "item": {
+      "author": "Author   : ",
+      "category": "Category : ",
+      "price": "Unit Price",
+      "quantity": "Quantity",
+      "subtotal": "Subtotal"
+    }
+  }
+}

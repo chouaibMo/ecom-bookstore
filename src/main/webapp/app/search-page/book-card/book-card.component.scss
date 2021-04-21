@@ -1,0 +1,136 @@
+.container {
+  margin: 0 auto;
+  max-width: 910px;
+}
+
+.inline {
+  display: inline-flex;
+}
+
+.choose {
+  width: 100%;
+  height: 40px;
+}
+.fa {
+  margin-right: 20px;
+  font-size: 30px;
+  color: gray;
+  float: right;
+}
+/******************************************
+Book stuff
+*******************************************/
+
+
+.book {
+  display: inline-block;
+  width: 230px;
+  height: 390px;
+  box-shadow: 0 0 20px #aaa;
+  border-radius: 8px;
+  margin: 25px;
+  padding: 10px 10px 0 10px;
+  vertical-align: top;
+  transition: height 1s;
+  font-size: 18px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.card-title {
+  margin-top: 8px;
+  margin-bottom: -2px;
+}
+
+.cover {
+  border: 2px solid gray;
+  height: 75%;
+  overflow: hidden;
+}
+
+.cover img {
+  width: 100%;
+}
+
+
+.price {
+  color: #00b16a;
+  font-size: larger
+}
+
+@media (max-width: 941px) {
+  .container {
+    max-width: 800px;
+    font-size: 15px;
+  }
+  .book {
+    margin: 49px;
+  }
+}
+@media (max-width: 730px) {
+
+  .price {
+    margin-top: 0px;
+  }
+
+  .card-title {
+    margin-bottom: 0px;
+  }
+
+  .book {
+    margin: 10px;
+    margin-top: 30px;
+    width: 150px;
+    height: 240px;
+    font-size: 12px;
+  }
+  .cover {
+  }
+}
+
+/*********************************
+other
+**********************************/
+
+h1 {
+  color: gray;
+  text-align: center;
+  font-size: 50px;
+  margin-bottom: -3px;
+}
+
+/**********************************
+display change
+***********************************/
+/*book height smaller, cover opacity, move text onto cover and star too
+animate it */
+#list-th:target .book {
+  height: 100px;
+  width: 250px;
+  padding: 10px;
+  margin: 25px auto 25px auto;
+}
+
+#list-th:target .cover {
+  width: 246px;
+}
+
+#list-th:target img {
+  opacity: 0.1;
+}
+
+#list-th:target p {
+  margin-top: -62px;
+  margin-left: 20px;
+}
+/* remove button? */
+#large-th:target .book {
+  height: 390px;
+}
+
+/***********************************
+star animation
+***********************************/
+/***********************************
+zoom on click
+***********************************/

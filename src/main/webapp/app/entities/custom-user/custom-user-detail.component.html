@@ -1,0 +1,40 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="customUser">
+            <h2><span jhiTranslate="ecomBookstoreApp.customUser.detail.title">Custom User</span> {{ customUser.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ecomBookstoreApp.customUser.phoneNumber">Phone Number</span></dt>
+                <dd>
+                    <span>{{ customUser.phoneNumber }}</span>
+                </dd>
+                <dt><span jhiTranslate="ecomBookstoreApp.customUser.user">User</span></dt>
+                <dd>
+                    {{ customUser.userId }}
+                </dd>
+                <dt><span jhiTranslate="ecomBookstoreApp.customUser.cart">Cart</span></dt>
+                <dd>
+                    <div *ngIf="customUser.cartId">
+                        <a [routerLink]="['/order', customUser.cartId, 'view']">{{ customUser.cartId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/custom-user', customUser.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+<!-- This template display a order line with book related information-->
+
+<div class="cart-item py-3 my-1">
+
+    <div class="px-3 my-1">
+        <a *ngIf="book" class="cart-item-product" [routerLink]="['/shop/book/', book!.id, 'view']">
+            <div class="cart-item-product-thumb">
+                <img src="{{book!.imageURL}}" alt="{{book!.title}}">
+            </div>
+            <div class="cart-item-product-info">
+                <h4 class="cart-item-product-title">{{book!.title}}</h4>
+            </div>
+        </a>
+    </div>
+    <div class="card-body py-3 mb-3">
+        <div class="card-horizontal">
+            <div class="px-3 my-3 text-center">
+                <div class="cart-item-label" jhiTranslate="shoppingCart.item.price">Unit Price</div>
+                <span class="text-xl font-weight-medium">{{book?.price | currency:'EUR':true}}</span>
+            </div>
+            <div class="px-3 my-3 text-center">
+                <div class="cart-item-label" jhiTranslate="shoppingCart.item.quantity">Quantity</div>
+                <span class="text-xl font-weight-medium">{{orderLine!.quantity}}</span>
+            </div>
+            <div class="px-3 my-3 text-center">
+                <div class="cart-item-label" jhiTranslate="shoppingCart.item.subtotal">Subtotal</div>
+                <span class="text-xl font-weight-medium">{{orderLine!.price | currency:'EUR':true}}</span>
+            </div>
+        </div>
+
+        <button *ngIf="book" class="btn btn-success float-left" [routerLink]="['/customer-comment/book/', book!.id]">
+            <span jhiTranslate="ecomBookstoreApp.order.orderHistory.writeCommentBtn"></span>
+        </button>
+        <a *ngIf="book" style='margin-left: 10px' class="btn btn-success float-left" target="_blank" href={{book!.imageURL}}>
+            <span jhiTranslate="ecomBookstoreApp.order.orderHistory.download"></span>
+        </a>
+    </div>
+</div>

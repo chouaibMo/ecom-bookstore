@@ -1,0 +1,38 @@
+{
+  "checkout": {
+    "cart": "Cart",
+    "billing": "Billing address",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "address": "Address",
+    "country": "Country",
+    "city": "City",
+    "zip": "Zip code",
+    "payment": "Payment",
+    "cardname": "Name on card",
+    "cardname2": "Full name as displayed on card",
+    "cardnumber": "Credit card number",
+    "cardnumber2": "Number on the credit card",
+    "year": "Year",
+    "month": "Month",
+    "save": "Save this information for next time",
+    "continue": "Confirm payment",
+    "return": "< Return to cart",
+    "yourcart": "Your cart",
+    "promo": "Promo code",
+    "examplecode": "EXAMPLECODE",
+    "apply": "Apply",
+    "error": {
+      "checkout" : "one or more fields are invalid. please check and try again",
+      "firstName": "Your first name is required.",
+      "lastName": "Your last name is required.",
+      "email": "Your email is required",
+      "address": "Your address is required.",
+      "city": "Your city is required",
+      "zip": "Your zip code is required",
+      "cardname": "The name on your card is required.",
+      "cardnumber": "Your card number is required.",
+      "cvv": "CVV is required."
+    }
+  }
+}

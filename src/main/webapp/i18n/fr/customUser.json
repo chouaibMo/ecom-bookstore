@@ -1,0 +1,27 @@
+{
+  "ecomBookstoreApp": {
+    "customUser": {
+      "home": {
+        "title": "CustomUsers",
+        "createLabel": "Créer un nouveau Custom User",
+        "createOrEditLabel": "Créer ou éditer un Custom User",
+        "search": "Recherche pour Custom User",
+        "notFound": "Aucun Custom User trouvé"
+      },
+      "created": "Un nouveau Custom User a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Custom User avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Custom User avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Custom User {{ id }} ?"
+      },
+      "detail": {
+        "title": "Custom User"
+      },
+      "phoneNumber": "Phone Number",
+      "user": "User",
+      "cart": "Cart",
+      "billingInfo": "Billing Info",
+      "address": "Address"
+    }
+  }
+}

@@ -1,0 +1,157 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-book-heading" jhiTranslate="ecomBookstoreApp.book.home.createOrEditLabel">Create or edit a Book</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ecomBookstoreApp.book.title" for="field_title">Title</label>
+                    <input type="text" class="form-control" name="title" id="field_title"
+                           formControlName="title"/>
+                    <div *ngIf="editForm.get('title')!.invalid && (editForm.get('title')!.dirty || editForm.get('title')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('title')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ecomBookstoreApp.book.imageURL" for="field_imageURL">Book Image</label>
+                    <input type="file" class="form-control" accept=".png, .jpg, .jpeg" #imgFile (change)="uploadToFirebase(imgFile)"/>
+
+                    <input type="text" class="form-control" name="imageURL" id="field_imageURL" formControlName="imageURL" style="display: none" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ecomBookstoreApp.book.price" for="field_price">Price</label>
+                    <input type="number" class="form-control" name="price" id="field_price"
+                           formControlName="price"/>
+                    <div *ngIf="editForm.get('price')!.invalid && (editForm.get('price')!.dirty || editForm.get('price')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('price')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('price')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ecomBookstoreApp.book.rating" for="field_rating">Rating</label>
+                    <input type="number" class="form-control" name="rating" id="field_rating"
+                           formControlName="rating"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ecomBookstoreApp.book.language" for="field_language">Language</label>
+                    <select class="form-control" name="language" formControlName="language" id="field_language">
+                        <option value="FR">{{ 'ecomBookstoreApp.Language.FR' | translate }}</option>
+                        <option value="EN">{{ 'ecomBookstoreApp.Language.EN' | translate }}</option>
+                        <option value="AR">{{ 'ecomBookstoreApp.Language.AR' | translate }}</option>
+                        <option value="IT">{{ 'ecomBookstoreApp.Language.IT' | translate }}</option>
+                        <option value="ES">{{ 'ecomBookstoreApp.Language.ES' | translate }}</option>
+                        <option value="CH">{{ 'ecomBookstoreApp.Language.CH' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ecomBookstoreApp.book.format" for="field_format">Format</label>
+                    <select class="form-control" name="format" formControlName="format" id="field_format">
+                        <option value="AUDIO">{{ 'ecomBookstoreApp.BookType.AUDIO' | translate }}</option>
+                        <option value="EBOOK">{{ 'ecomBookstoreApp.BookType.EBOOK' | translate }}</option>
+                        <option value="PAPERBACK">{{ 'ecomBookstoreApp.BookType.PAPERBACK' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('format')!.invalid && (editForm.get('format')!.dirty || editForm.get('format')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('format')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ecomBookstoreApp.book.paperBackQuantity" for="field_paperBackQuantity">Paper Back Quantity</label>
+                    <input type="number" class="form-control" name="paperBackQuantity" id="field_paperBackQuantity"
+                           formControlName="paperBackQuantity"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ecomBookstoreApp.book.publicationDate" for="field_publicationDate">Publication Date</label>
+                    <div class="input-group">
+                        <input id="field_publicationDate" type="text" class="form-control" name="publicationDate" ngbDatepicker #publicationDateDp="ngbDatepicker" formControlName="publicationDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="publicationDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('publicationDate')!.invalid && (editForm.get('publicationDate')!.dirty || editForm.get('publicationDate')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('publicationDate')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ecomBookstoreApp.book.isbn" for="field_isbn">Isbn</label>
+                    <input type="text" class="form-control" name="isbn" id="field_isbn"
+                           formControlName="isbn"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ecomBookstoreApp.book.pages" for="field_pages">Pages</label>
+                    <input type="number" class="form-control" name="pages" id="field_pages"
+                           formControlName="pages"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ecomBookstoreApp.book.otherDetails" for="field_otherDetails">Other Details</label>
+                    <input type="text" class="form-control" name="otherDetails" id="field_otherDetails"
+                           formControlName="otherDetails"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ecomBookstoreApp.book.category" for="field_category">Category</label>
+                    <select class="form-control" id="field_category" name="category" formControlName="categoryId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="categoryOption.id" *ngFor="let categoryOption of categories; trackBy: trackById">{{ categoryOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label jhiTranslate="ecomBookstoreApp.book.author" for="field_authors">Author</label>
+                    <select class="form-control" id="field_authors" multiple name="authors" formControlName="authors">
+                        <option [ngValue]="getSelected(editForm.get('authors')!.value, authorOption)" *ngFor="let authorOption of authors; trackBy: trackById">{{ authorOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ecomBookstoreApp.book.discount" for="field_discount">Discount</label>
+                    <select class="form-control" id="field_discount" name="discount" formControlName="discountId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="discountOption.id" *ngFor="let discountOption of discounts; trackBy: trackById">{{ discountOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

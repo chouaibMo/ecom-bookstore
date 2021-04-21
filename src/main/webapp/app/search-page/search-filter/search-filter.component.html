@@ -1,0 +1,95 @@
+<div class="filters p-3 mb-5">
+    <form class="form-inline" (ngSubmit)="onApplyFilter()">
+
+        <!-- SEARCH FILTERS -->
+        <div style="width: 100%;">
+            <div>
+                <div style="width: 100%;">
+                    <div class="row d-flex justify-content-around">
+                        <div class="filter-panel col-sm-6">
+                            <!-- Category Selection -->
+                            <div class="pt-2">
+                                <span for="catetogy-select" jhiTranslate="ecomBookstoreApp.book.filter.category"
+                                    class="option pr-3"></span>
+                                <select class="form-control mt-2" name="categoryId" [(ngModel)]="selectedCategory"
+                                    >
+                                    <option value="-1"><span
+                                            jhiTranslate="ecomBookstoreApp.book.filter.noCategory">Choose a
+                                            category</span></option>
+                                    <option *ngFor="let myCat of categories" [value]="myCat.id">{{myCat.name}}</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group col-sm-6 pt-2">
+                            <span jhiTranslate="ecomBookstoreApp.book.filter.rating" class="pr-3 option"></span>
+                            <ngb-rating [max]="5" [(rate)]="rating"></ngb-rating>
+                        </div>
+                    </div>
+                    <!-- Price range selection -->
+                    <div class="mx-3 mb-3 form-group">
+                        <div class="rating-container my-2 row d-flex justify-content-center">
+                            <span class="option text-right pricerange" jhiTranslate="ecomBookstoreApp.book.filter.range">Price range</span>
+                            <ngx-slider [(value)]="priceMin" (valueChange)="onMinPriceChange($event)"
+                                [(highValue)]="priceMax" [options]="options_price" class="text-left"
+                                style="background-color: black;"></ngx-slider>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <!-- SORT -->
+        <div id="collapseSort" class="col-12" [ngbCollapse]="isCollapsedSort">
+            <div class="mx-3 my-2">
+                <div class="card-body row">
+                    <span class="option pr-3 col-md-2 text-left" jhiTranslate="ecomBookstoreApp.book.sort.sortby">Sort by :</span>
+                    <fieldset [formGroup]="sortForm" class="sortForm col-md-3">
+                        <label class="container rad">
+                            <input type="radio" value="price.asc" name="sortField" formControlName="sortField"
+                                checked="checked" (change)="onChange('price.asc')"> <span class="checkmark"></span>
+                            <span class="ml-1 mr-2" jhiTranslate="ecomBookstoreApp.book.sort.lowestPrice"></span>
+                        </label>
+
+                        <label class="container rad">
+                            <input type="radio" value="price.desc" name="sortField" formControlName="sortField"
+                                (change)="onChange('price.desc')"><span class="checkmark"></span>
+                            <span class="ml-1 mr-2" jhiTranslate="ecomBookstoreApp.book.sort.highestPrice"></span>
+                        </label>
+                    </fieldset>
+                    <fieldset [formGroup]="sortForm" class="sortForm col-md-3">
+
+                        <label class="container rad">
+                            <input type="radio" value="rating.asc" name="sortField" formControlName="sortField"
+                                (change)="onChange('rating.asc')"><span class="checkmark"></span>
+                            <span class="ml-1 mr-2" jhiTranslate="ecomBookstoreApp.book.sort.worstRating"></span>
+                        </label>
+
+                        <label class="container rad">
+                            <input type="radio" value="rating.desc" name="sortField" formControlName="sortField"
+                                (change)="onChange('rating.desc')"><span class="checkmark"></span>
+                            <span class="ml-1 mr-2" jhiTranslate="ecomBookstoreApp.book.sort.bestRating"></span>
+                        </label>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 text-right">
+
+            <button type="button" class="btn btn-secondary btn-xl mb-0" (click)="isCollapsedSort = !isCollapsedSort"
+                [attr.aria-expanded]="!isCollapsedSort" aria-controls="collapseSort" jhiTranslate="ecomBookstoreApp.book.sort.sort">
+                Sort
+            </button>
+
+            <!-- Display Apply button when changes are made in filters / sort -->
+            <button type="submit" class="btn btn-success btn-xl mx-2" jhiTranslate="ecomBookstoreApp.book.sort.apply">Apply</button>
+
+        </div>
+    </form>
+</div>
+<hr>

@@ -1,0 +1,125 @@
+
+
+enum BookType {
+	AUDIO, EBOOK, PAPERBACK
+}
+
+enum OrderStatus {
+	IN_CART, CANCELLED, CONFIRMED, EXPEDITED, DELIVERED
+}
+
+enum PaymentMethod {
+	CREDITCARD, PAYPAL
+}
+
+enum Language {
+	FR, EN, AR, IT, ES, CH
+}
+
+enum Country {
+	FRANCE, ENGLAND, CHINA,
+    ITALY, SPAIN, CANADA, USA
+}
+
+entity Category {
+	name String required
+}
+
+entity Author {
+	name String required,
+	description String
+    country Country
+}
+
+entity Book {
+	title String required,
+    price Float required,
+    rating Float,
+    imageURL String,
+    language Language
+    format BookType required,
+    paperBackQuantity Long,
+    publicationDate LocalDate required,
+    isbn String,
+    pages Integer,
+    otherDetails String
+}
+
+entity Discount {
+	startDate LocalDate required,
+    endDate LocalDate,
+	description String,
+	discountRate Integer required
+}
+
+entity Order {
+	orderStatus OrderStatus required,
+    orderDetails String,
+    totalPrice Float required,
+    orderDate ZonedDateTime,
+    paymentDate ZonedDateTime,
+}
+
+entity OrderLine {
+	quantity Integer required,
+    price Float required
+}
+
+entity CustomerComment {
+    title String,
+    comment String,
+    commentDate ZonedDateTime required,
+    rating Float required
+}
+
+
+entity Address {
+	address String required,
+	city String required,
+	zipCode String required
+    country Country
+}
+
+entity BillingInfo {
+	infoTitle String,
+	cardNumber String,
+	cardExpiryDate LocalDate,
+    cryptogram String,
+    email String,
+    billingMethod PaymentMethod required
+}
+
+entity CustomUser {
+	phoneNumber String,
+}
+
+relationship OneToOne {
+	CustomUser{user} to User
+    CustomUser{cart} to Order
+}
+
+relationship OneToMany {
+	Order{orderLine} to OrderLine{order}, 	
+    CustomUser{billingInfo} to BillingInfo{customer},
+	CustomUser{address} to Address{customer},
+    Discount{book} to Book{discount}
+}
+
+relationship ManyToOne {
+	OrderLine{book} to Book,
+    CustomerComment{customer} to CustomUser,
+    CustomerComment{book} to Book
+    Order{customer} to CustomUser,
+    Book{category} to Category
+}
+
+relationship ManyToMany {
+    Book{author} to Author{book}
+}
+
+paginate Book, Order, CustomerComment with pagination
+
+service * with serviceImpl 
+
+dto * with mapstruct
+
